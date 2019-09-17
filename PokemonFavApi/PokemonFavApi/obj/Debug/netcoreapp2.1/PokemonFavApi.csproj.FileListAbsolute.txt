@@ -1,0 +1,14 @@
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\bin\Debug\netcoreapp2.1\PokemonFavApi.deps.json
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\bin\Debug\netcoreapp2.1\PokemonFavApi.runtimeconfig.json
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\bin\Debug\netcoreapp2.1\PokemonFavApi.runtimeconfig.dev.json
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\bin\Debug\netcoreapp2.1\PokemonFavApi.dll
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\obj\Debug\netcoreapp2.1\PokemonFavApi.csprojAssemblyReference.cache
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\obj\Debug\netcoreapp2.1\PokemonFavApi.csproj.CoreCompileInputs.cache
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\obj\Debug\netcoreapp2.1\PokemonFavApi.RazorAssemblyInfo.cache
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\obj\Debug\netcoreapp2.1\PokemonFavApi.RazorAssemblyInfo.cs
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\obj\Debug\netcoreapp2.1\PokemonFavApi.AssemblyInfoInputs.cache
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\obj\Debug\netcoreapp2.1\PokemonFavApi.AssemblyInfo.cs
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\obj\Debug\netcoreapp2.1\PokemonFavApi.RazorTargetAssemblyInfo.cache
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\bin\Debug\netcoreapp2.1\PokemonFavApi.pdb
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\obj\Debug\netcoreapp2.1\PokemonFavApi.dll
+D:\Proyectos de Viisual\ARCSA\PokemonFavApi\PokemonFavApi\obj\Debug\netcoreapp2.1\PokemonFavApi.pdb

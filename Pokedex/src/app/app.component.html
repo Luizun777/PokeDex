@@ -1,0 +1,44 @@
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-danger">
+  <img class="iconPoke" src="assets/IMG/pokeball.png"> 
+  <a class="navbar-brand" routerLink='/PokeList'>
+    <h2>
+      Pokédex
+    </h2>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <!-- Enalces -->
+      <!-- <a class="nav-item nav-link active" routerLink=''>Home <span class="sr-only">(current)</span></a> -->
+      <!-- <a class="nav-item nav-link" routerLink=''>Features</a> -->
+    </div>
+  </div>
+</nav>
+
+<!-- router -->
+<div class="container PokeBackground">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="wrapper">
+  <div class="wrapped-div">
+    <div class="tab-header">
+      <h2 routerLink='/PokeList' routerLinkActive='active'>
+        <i class="fas fa-list-ul"></i>
+        Lista
+      </h2>
+      <h2 routerLink='/PokeFav' routerLinkActive='active'>
+        <i class="far fa-star"></i>
+        Favoritos
+      </h2>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-10 offset-md-1 text-white">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

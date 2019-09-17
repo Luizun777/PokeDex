@@ -1,0 +1,146 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    background-image: url("assets/IMG/Fondo_1.jpg");
+    overflow-y: scroll;
+    scrollbar-color: #ff9d00 #ffffff00;
+    scrollbar-width: thin;
+}
+
+.loade {
+    width: 20rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.poison {
+  background-color: #7f34c5;
+  color: #ffff;
+}
+
+.ground  {
+  background-color: #311803;
+  color: #ffff;
+}
+
+.ghost {
+  background-color: #00000069;
+  color: #ffff;
+}
+
+.psychic {
+  background-color: #cecb10;
+  color: #000000
+}
+
+.flying {
+  background-color: #64c3fa;
+  color: #000000
+}
+
+.fighting {
+  background-color: #062408;
+  color: #ffff;
+}
+
+.fairy {
+  background-color: #d81da0;
+  color: #ffff;
+}
+
+.steel {
+  background-color: #5e5656;
+  color: #ffff;
+}
+
+.grass {
+  background-color: #297a3d;
+  color: #ffff;
+}
+
+.normal {
+  background-color: #0eaaaa;
+  color: #ffff;
+}
+
+.electric {
+  background-color: #fbff0f;
+  color: #000000;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+html::-webkit-scrollbar {
+    width: 4px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #ff9d00;
+    border-radius: 5px;
+}
+
+.spin-width {
+    width: 10rem;
+    height: 10rem;
+}
+
+.wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    padding: 30px;
+}
+
+.wrapped-div {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #2e3137d8;
+    padding: 30px;
+    width: 90%;
+    max-width: 75%;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+}
+
+.tab-header{
+    text-align: center;
+}
+
+.tab-header h2.active {
+    color: #fff;
+    border-bottom: 4px solid #fff;
+}
+
+.tab-header h2 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    display:inline-block;
+    padding: 30px 40px 10px 40px;
+    cursor: pointer;
+    color: #545d6a;
+    border-bottom: 2px solid #545d6a;
+}
+
+.tab-header h2:focus {
+      outline: none;
+}
+
+form{
+      margin: 0px 16px;
+}
+
+div.form-group input.invalid{
+    border: 1px solid #dc3545; 
+}
+
+div.form-group label:first-child{
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}

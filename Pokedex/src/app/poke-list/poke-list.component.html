@@ -1,0 +1,249 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<!-- <div class="d-flex justify-content-center" *ngIf="spin">
+  <div class="spinner-grow text-primary m-5 spin-width" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div> -->
+<div class="text-center mb-4" [hidden]="!spin">
+  <img class="animated rubberBand infinite loade" src="assets/IMG/pokeball.png">
+</div>
+<table class="table table-striped table-dark text-center animated zoomIn faster" [hidden]="spin">
+  <thead>
+    <tr>
+      <th scope="col" colspan="5">
+        <img class="animated rubberBand PokeLogo" src="assets/IMG/pokemonLogo.png">
+      </th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let x of List">
+    <tr *ngFor="let y of x.results[0]; let i = index">
+      <th scope="row">
+        <h3 class="mt-2">
+          #{{ y.id }}
+        </h3>
+      </th>
+      <td colspan="2">
+        <div class="row mt-1">
+          <div class="col-12 mt-2">
+            <h1>
+              {{ y.name }}
+            </h1>
+            <span *ngFor="let t of y.types">
+              <span
+                [class.poison]="t.type.name === 'poison'"
+                [class.ground]="t.type.name === 'ground'"
+                [class.ghost]="t.type.name === 'ghost'"
+                [class.psychic]="t.type.name === 'psychic'"
+                [class.flying]="t.type.name === 'flying'"
+                [class.fighting]="t.type.name === 'fighting'"
+                [class.fairy]="t.type.name === 'fairy'"
+                [class.steel]="t.type.name === 'steel'"
+                [class.grass]="t.type.name === 'grass'"
+                [class.normal]="t.type.name === 'normal'"
+                [class.electric]="t.type.name === 'electric'"
+                [class.badge-primary]="t.type.name === 'water'"
+                [class.badge-success]="t.type.name === 'bug'"
+                [class.badge-danger]="t.type.name === 'fire' || t.type.name === 'dragon'"
+                [class.badge-light]="t.type.name === 'ice'"
+                [class.badge-dark]="t.type.name === 'rock' || t.type.name === 'dark'"
+                
+                class="badge badge-pill text-capitalize">
+                <span *ngIf="t.type.name === 'grass'"><i class="fas fa-seedling"></i></span>
+                <span *ngIf="t.type.name === 'poison'"><i class="fas fa-skull-crossbones"></i></span>
+                <span *ngIf="t.type.name === 'bug'"><i class="fas fa-bug"></i></span>
+                <span *ngIf="t.type.name === 'water'"><i class="fas fa-tint"></i></span>
+                <span *ngIf="t.type.name === 'fire'"><i class="fas fa-fire-alt"></i></span>
+                <span *ngIf="t.type.name === 'dragon'"><i class="fas fa-dragon"></i></span>
+                <span *ngIf="t.type.name === 'flying'"><i class="fas fa-wind"></i></span>
+                <span *ngIf="t.type.name === 'ground'"><i class="fas fa-water"></i></span>
+                <span *ngIf="t.type.name === 'electric'"><i class="fas fa-bolt"></i></span>
+                <span *ngIf="t.type.name === 'ice'"><i class="far fa-snowflake"></i></span>
+                <span *ngIf="t.type.name === 'fighting'"><i class="fas fa-fist-raised"></i></span>
+                <span *ngIf="t.type.name === 'ghost'"><i class="fas fa-ghost animated flash infinite slower"></i></span>
+                <span *ngIf="t.type.name === 'steel'"><i class="fas fa-drum-steelpan"></i></span>
+                <span *ngIf="t.type.name === 'psychic'"><i class="fas fa-hamsa"></i></span>
+                <span *ngIf="t.type.name === 'rock'"><i class="fas fa-mountain"></i></span>
+                <span *ngIf="t.type.name === 'fairy'"><i class="fas fa-magic"></i></span>
+                <span *ngIf="t.type.name === 'dark'"><i class="far fa-moon"></i></span>
+                <span *ngIf="t.type.name === 'normal'"><i class="fab fa-ethereum"></i></span>
+                {{t.type.name}}
+              </span>&nbsp;
+            </span>
+          </div>
+          <div class="col-12 mt-2">
+            <hr>
+            <h3>Estadísticas</h3>
+            <div class="row justify-content-md-center text-capitalize">
+              <div class="col-4" *ngFor="let s of y.stats">
+                <h6>
+                  <b>{{s.stat.name}}:</b> {{ s.base_stat }}
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <img class="mt-4 animated zoomIn" [src]="y.imagenes"
+              [class.pok404Img]="y.imagenes === 'assets/IMG/pokeball.png'"
+              [class.pokImg]="y.imagenes !== 'assets/IMG/pokeball.png'">
+      </td>
+      <td>
+        <h2>
+          <span *ngIf="!y.fav" (click)="insertPokemonFav(y.id, y.name, y.imagenes, i)">
+            <i class="far fa-star text-warning pointer animated swing"></i>
+          </span>
+          <span *ngIf="y.fav" (click)="ElimFav(y.id, y.name)">
+              <i class="fas fa-star text-warning pointer animated tada infinite"></i>
+          </span>
+        </h2>
+      </td>
+    </tr>
+    <tr>
+
+      <!-- <th colspan="4" class="text-left">
+        <div class="row">
+          <div class="col-sm-1">
+            <h4>
+              <button class="btn btn-link text-white" (click)="Paginador('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20')" [disabled]="btn_prev">
+                <i class="fas fa-angle-double-left"></i>
+              </button>
+            </h4>
+          </div>
+          <div class="col">
+            <h4>
+              <button class="btn btn-link text-white" (click)="Paginador(x.previous)" [disabled]="btn_prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </h4>
+          </div>
+          <div class="col-sm-1">
+            <h4 class="text-right">
+              <button class="btn btn-link text-white" (click)="Paginador(x.next)" [disabled]="btn_next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </h4>
+          </div>
+          <div class="col-sm-1">
+            <h4 class="text-right">
+              <button class="btn btn-link text-white" (click)="Paginador('https://pokeapi.co/api/v2/pokemon?offset=960&limit=4')" [disabled]="btn_next">
+                <i class="fas fa-angle-double-right"></i>
+              </button>
+            </h4>
+          </div>
+        </div>
+      </th> -->
+      <th>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <button class="btn btn-link text-white" (click)="Paginador('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20', 'inicio', 0)" [disabled]="btn_prev">
+                <i class="fas fa-angle-double-left"></i>
+              </button>
+            </li>
+            <li class="page-item">
+              <button class="btn btn-link text-white" (click)="Paginador(x.previous, 'prev', 0)" [disabled]="btn_prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <!-- <h4>
+          <button class="btn btn-link text-white" (click)="Paginador('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20', 'inicio', 0)" [disabled]="btn_prev">
+            <i class="fas fa-angle-double-left"></i>
+          </button>
+          <button class="btn btn-link text-white" (click)="Paginador(x.previous, 'prev', 0)" [disabled]="btn_prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+        </h4> -->
+      </th>
+      <!-- <th>
+        <h4>
+          <button class="btn btn-link text-white" (click)="Paginador(x.previous, 'prev', 0)" [disabled]="btn_prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+        </h4>
+      </th> -->
+      <th colspan="3">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center mt-2">
+            <li class="page-item">{{PagActual}} / {{PagTotal}} </li>&nbsp;
+            <li class="page-item disabled">
+              <select class="form-control form-control-sm bg-dark text-center text-white">
+                <option *ngFor="let p of PaginasPokemon" (click)="Paginador(p.url, 'select', p.index)" [value]="PagActual" [selected]="PagActual === p.index">
+                  {{ p.index }}
+                </option>
+              </select>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- <div class="form-group row justify-content-md-center mt-2">
+          <label class="col col-lg-4 text-right">
+            {{PagActual}} / {{PagTotal}} 
+          </label>
+          <div class="col-sm-8">
+            <select class="form-control form-control-sm bg-dark text-center text-white">
+              <option> - Selecciona - </option>
+              <option *ngFor="let p of PaginasPokemon" (click)="Paginador(p.url, 'select', p.index)">
+                {{ p.index }}
+              </option>
+            </select>
+          </div>
+        </div> -->
+      </th>
+      <!-- <th>
+        <h4 class="text-right">
+          <button class="btn btn-link text-white" (click)="Paginador(x.next, 'nex', 0)" [disabled]="btn_next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </h4>
+      </th> -->
+      <th>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <button class="btn btn-link text-white" (click)="Paginador(x.next, 'nex', 0)" [disabled]="btn_next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </li>
+            <li class="page-item">
+              <button class="btn btn-link text-white" (click)="Paginador('https://pokeapi.co/api/v2/pokemon?offset=960&limit=20', 'fin', 0)" [disabled]="btn_next">
+                <i class="fas fa-angle-double-right"></i>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <!-- <h4 class="text-right">
+          <button class="btn btn-link text-white" (click)="Paginador('https://pokeapi.co/api/v2/pokemon?offset=960&limit=4', 'fin', 0)" [disabled]="btn_next">
+            <i class="fas fa-angle-double-right"></i>
+          </button>
+        </h4> -->
+      </th>
+
+    </tr>
+    <!-- <tr>
+      <th colspan="4">
+        <select class="form-control form-control-sm bg-dark text-center text-white">
+          <option>
+            - Selecciona -
+          </option>
+          <option *ngFor="let p of PaginasPokemon" (click)="Paginador(p.url)">
+            {{ p.index }}
+          </option>
+        </select>
+        <div class="row">
+          <div class="col mt-2 navigation">
+            <nav aria-label="Page bg-dark">
+              <ul class="pagination justify-content-center bg-dark row" >
+                <li class="page-item bg-dark col-auto" *ngFor="let p of PaginasPokemon">
+                  <a class="page-link bg-dark" (click)="Paginador(p.url)">{{ p.index }}</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </th>
+    </tr> -->
+  </tbody>
+</table>
