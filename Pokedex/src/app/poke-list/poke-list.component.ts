@@ -35,6 +35,7 @@ export class PokeListComponent implements OnInit {
 
   // bool
   spin:boolean;
+  error: boolean;
 
   constructor( private api: PokeService, private messageService: MessageService ) { }
 
@@ -54,6 +55,7 @@ export class PokeListComponent implements OnInit {
   }
 
   getPokemonList() {
+    this.error = false;
     this.spin = true;
     let Llength: number = 0
     // this.List = [];
@@ -142,6 +144,7 @@ export class PokeListComponent implements OnInit {
               // this.messageService.clear();
             }
             // console.log(this.ListaPokemon.length)
+            this.error = true;
           });
         },( error: any ) => {  });
       }
@@ -174,6 +177,7 @@ export class PokeListComponent implements OnInit {
       break;
     }
     this.spin = true;
+    this.error = false;
     this.PokeUrlActual = n;
     console.log(n)
     console.log(this.PokeUrlActual)
@@ -237,6 +241,7 @@ export class PokeListComponent implements OnInit {
               this.spin = false;
             }
           },async ( error: any ) => {
+            this.error = true;
             // console.log(error)
             // this.messageService.clear();
             let imagPok = x.sprites.front_default;

@@ -15,6 +15,15 @@
       </th>
     </tr>
   </thead>
+  <tbody [hidden]="!error">
+    <tr>
+      <td colspan="5">
+        <div class="alert alert-danger" role="alert">
+          <i class="far fa-frown"></i> Error de conexión en servidor "Pokémon favoritos"
+        </div>
+      </td>
+    </tr>
+  </tbody>
   <tbody *ngFor="let x of List">
     <tr *ngFor="let y of x.results[0]; let i = index">
       <th scope="row">
