@@ -12,6 +12,8 @@ En la capeta Pokedex abrirla con CMD y ejecutar `npm install` después de que se
 
 Seleccionar la capeta PokemonFavApi abrir el archivo `PokemonFavApi.sln` para ejecutar la Web Api que esta echa en .net Core 2.1 para que el proyecto de Angular visualice, agregue o elimine los Pokémon Favoritos que estos se encuentran en la base de datos `PokemonDB`.
 
+Configurar el archivo `appsettings.json` y en `ConnectionStrings:dbPokeFav` agregar IP del servidor en `Data Source`,  usuario en `User ID` y contraseña en `Password` para conectarnos al servidor de la base de datos. 
+
 ## Frameworks
 * [Dapper](https://www.nuget.org/packages/Dapper)
 
