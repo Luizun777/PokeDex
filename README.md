@@ -1,26 +1,14 @@
 # Angular Pokedex
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
+En la capeta Pokedex abrirla con CMD y ejecutar `npm install` después de que se descarguen los componentes ejecutar el proyecto con `ng serve`.  Navegar a `http://localhost:4200/`.
 
-## Development server
+# PokeFavApi
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Seleccionar la capeta PokemonFavApi abrir el archivo `PokemonFavApi.sln` para ejecutar la Web Api que esta echa en .net Core 2.1 para que el proyecto de Angular visualice, agregue o elimine los Pokémon Favoritos que estos se encuentran en la base de datos `PokemonDB`.
 
-## Code scaffolding
+# PokémonDB
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Base de datos SQL Server. Ejecutar el script ` PokemonDB.sql` para que se puedan crear la base de datos, tabla y Stored procedure de los Pokémon Favoritos.
 
 ## Further help
 
