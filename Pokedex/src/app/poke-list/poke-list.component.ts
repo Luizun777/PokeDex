@@ -58,12 +58,9 @@ export class PokeListComponent implements OnInit {
     this.error = false;
     this.spin = true;
     let Llength: number = 0
-    // this.List = [];
-    // this.ListaPokemon = [];
     let lista: ListPokemon = null;
     let pokemon: Pokemon = null;
     this.api.PokemonList().subscribe( (z: any) => {
-      console.log(z)
       if ( z.next === null ) {
         this.btn_next = true;
       }
@@ -78,19 +75,15 @@ export class PokeListComponent implements OnInit {
       };
       this.List = [];
       this.List.push(lista);
-      // console.log(z.results);
       this.ListaPokemon = [];
       for (const p of z.results) {
         this.api.PokemonId( p.name ).subscribe( (x: any) => {
-          // console.log(x)
           const nombrePokemon: string = this.Mayus(p.name);
           this.api.PokemonListFavId( x.id ).subscribe( async (y: any) => {
             let imagPok = x.sprites.front_default;
-            // console.log(p)
             if ( imagPok === null ) {
               imagPok = 'assets/IMG/pokeball.png';
             }
-            // console.log(y);
             let pFav = false;
             if ( y === 1 ) {
               pFav = true;
@@ -104,7 +97,6 @@ export class PokeListComponent implements OnInit {
               types: x.types,
               stats: x.stats
             };
-            // console.log(Pokemon);
             await this.ListaPokemon.push(pokemon);
             this.ListaPokemon.sort( (a, b) => {
               return a.id - b.id;
@@ -113,15 +105,11 @@ export class PokeListComponent implements OnInit {
             if ( z.results.length === Llength ) {
               this.spin = false;
             }
-            // console.log(this.ListaPokemon.length)
           },async ( error: any ) => {
-            // console.log(error)
             let imagPok = x.sprites.front_default;
-            // console.log(p)
             if ( imagPok === null ) {
               imagPok = 'assets/IMG/pokeball.png';
             }
-            // console.log(y);
             let pFav = false;
             pokemon = {
               id: x.id,
@@ -132,7 +120,6 @@ export class PokeListComponent implements OnInit {
               types: x.types,
               stats: x.stats
             };
-            // console.log(Pokemon);
             await this.ListaPokemon.push(pokemon);
             this.ListaPokemon.sort( (a, b) => {
               return a.id - b.id;
@@ -141,17 +128,13 @@ export class PokeListComponent implements OnInit {
             if ( z.results.length === Llength ) {
             this.messageService.add({severity:'error', summary: 'Error de conexión "'+error.name+'"', detail:'No pudo establecer una conexión con el servidor'});
               this.spin = false;
-              // this.messageService.clear();
             }
-            // console.log(this.ListaPokemon.length)
             this.error = true;
           });
-        },( error: any ) => {  });
+        });
       }
       this.List[0].results.push( this.ListaPokemon );
-      // console.log(this.List[0].results[0]);
-    },( error: any ) => {  });
-    // this.List = ListPokemon;
+    });
   }
 
   Mayus( nombrePokemon: string ) {
@@ -179,12 +162,7 @@ export class PokeListComponent implements OnInit {
     this.spin = true;
     this.error = false;
     this.PokeUrlActual = n;
-    console.log(n)
-    console.log(this.PokeUrlActual)
-    console.log(this.PagActual)
     let Llength: number = 0
-    // this.List = [];
-    // this.ListaPokemon = [];
     let lista: ListPokemon = null;
     let pokemon: Pokemon = null;
     this.api.PokemonListPage( this.PokeUrlActual ).subscribe( (z: any) => {
@@ -206,18 +184,15 @@ export class PokeListComponent implements OnInit {
       };
       this.List = [];
       this.List.push(lista);
-      console.log(z.results);
       this.ListaPokemon = [];
       for (const p of z.results) {
         this.api.PokemonId( p.name ).subscribe( (x: any) => {
           const nombrePokemon: string = this.Mayus(p.name);
           this.api.PokemonListFavId( x.id ).subscribe( (y: any) => {
             let imagPok = x.sprites.front_default;
-            // console.log(p)
             if ( imagPok === null ) {
               imagPok = 'assets/IMG/pokeball.png';
             }
-            // console.log(y);
             let pFav = false;
             if ( y === 1 ) {
               pFav = true;
@@ -231,7 +206,6 @@ export class PokeListComponent implements OnInit {
               types: x.types,
               stats: x.stats
             };
-            // console.log(Pokemon);
             this.ListaPokemon.push(pokemon);
             this.ListaPokemon.sort( (a, b) => {
               return a.id - b.id;
@@ -242,14 +216,10 @@ export class PokeListComponent implements OnInit {
             }
           },async ( error: any ) => {
             this.error = true;
-            // console.log(error)
-            // this.messageService.clear();
             let imagPok = x.sprites.front_default;
-            // console.log(p)
             if ( imagPok === null ) {
               imagPok = 'assets/IMG/pokeball.png';
             }
-            // console.log(y);
             let pFav = false;
             pokemon = {
               id: x.id,
@@ -260,7 +230,6 @@ export class PokeListComponent implements OnInit {
               types: x.types,
               stats: x.stats
             };
-            // console.log(Pokemon);
             await this.ListaPokemon.push(pokemon);
             this.ListaPokemon.sort( (a, b) => {
               return a.id - b.id;
@@ -269,17 +238,14 @@ export class PokeListComponent implements OnInit {
             if ( z.results.length === Llength ) {
               this.spin = false;
             }
-            // console.log(this.ListaPokemon.length)
           });
-        },( error: any ) => {  });
+        });
       }
       this.List[0].results.push( this.ListaPokemon );
-      // console.log(this.List);
-    },( error: any ) => { console.log(error) });
+    });
   }
 
   insertPokemonFav( id: number, name: string, img: string, index: number) {
-    console.log(this.PokeUrlActual);
     this.spin = true;
     this.PokeFrom.patchValue({
       id_Pokemon: id,
@@ -287,12 +253,7 @@ export class PokeListComponent implements OnInit {
       img: img
     });
     const f = Object.assign({}, this.PokeFrom.value);
-    // console.log(f);
     this.api.InsertarFav( f ).subscribe( z => {
-      // console.log(this.PokeUrlActual);
-      // console.log(this.PokeUrlActual);
-      // this.List[0].results[index].fav = true;
-      // console.log(this.List[0]);
       if ( z ) {
         if ( this.PokeUrlActual === undefined ) {
           this.getPokemonList();
@@ -305,7 +266,6 @@ export class PokeListComponent implements OnInit {
         this.messageService.add({severity:'error', summary: 'Error', detail:'Inténtelo más tarde'});
       }
     },( error: any ) => {
-      console.log(error)
       // this.spin = false;
       this.messageService.add({severity:'error', summary: 'No puedes capturar a '+name, detail:'Error de conexión "'+error.name+'". Inténtelo más tarde'});
       if ( this.PokeUrlActual === undefined ) {
@@ -318,12 +278,7 @@ export class PokeListComponent implements OnInit {
 
   ElimFav( id_pokemon: number, name: string ) {
     this.spin = true;
-    // console.log(index);
-    // this.ListResp[0].results[index].fav = false;
     this.api.PokemonElimFav(id_pokemon).subscribe( (x) => {
-      // this.List[0].results = this.ListResp[0].results;
-      // console.log(this.List[0]);
-      console.log(x)
       if (x) {
         if ( this.PokeUrlActual === undefined ) {
           this.getPokemonList();
@@ -336,8 +291,6 @@ export class PokeListComponent implements OnInit {
         this.messageService.add({severity:'error', summary: 'Error', detail:'Inténtelo más tarde'});
       }
     },( error: any ) => {
-      console.log(error)
-      // this.spin = false;
       this.messageService.add({severity:'error', summary: 'No puedes liberar a '+name, detail:'Error de conexión "'+error.name+'". Inténtelo más tarde'});
       if ( this.PokeUrlActual === undefined ) {
         this.getPokemonList();
@@ -349,14 +302,6 @@ export class PokeListComponent implements OnInit {
 
   Paginas() {
     let index = 1;
-    let indexP = 1;
-    let pag: any = []
-    let pagPrueba: any = []
-    // Todo 960
-    // Mitad 480
-    // 1/4 parte 240
-    let total = 940;
-
     for (let i = 0; i <= 960; i+=20) {
       const element = {
         index: index,
@@ -365,7 +310,6 @@ export class PokeListComponent implements OnInit {
       this.PaginasPokemon.push(element)
       index++
     }
-    // console.log(this.PaginasPokemon.length)
     this.PagTotal = this.PaginasPokemon.length;
     
   }

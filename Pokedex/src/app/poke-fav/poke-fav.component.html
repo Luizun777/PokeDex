@@ -1,43 +1,4 @@
-<!-- <table class="table table-striped table-dark text-center">
-  <thead>
-    <tr>
-      <th scope="col">
-        <h2>#</h2>
-      </th>
-      <th scope="col">
-        <h2>Pokemon</h2>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let x of List">
-      <th scope="row">
-        <h3 class="mt-4">
-          {{ x.id_Pokemon }}
-        </h3>
-      </th>
-      <td>
-        <h1 class="mt-4">
-          {{ x.name }}
-          <img class="pokImg" [src]="x.img">
-        </h1>
-      </td>
-      <td>
-        <h2>
-          <span (click)="ElimFav(x.id_Pokemon)">
-              <i class="fas fa-star"></i>
-          </span>
-        </h2>
-      </td>
-    </tr>
-  </tbody>
-</table> -->
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
-<!-- <div class="d-flex justify-content-center" *ngIf="spin">
-  <div class="spinner-grow text-primary m-5 spin-width" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-</div> -->
 <div class="text-center mb-4" [hidden]="!sinPokemon">
   <div class="alert alert-danger" role="alert">
     No tienes a ningun pokemon en favoritos

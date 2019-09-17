@@ -9,7 +9,7 @@ export class PokeService {
 
   constructor( private http: HttpClient ) { }
 
-  // PokeApi
+  // Servidor PokAapi
 
   PokemonList() {
     return this.http.get( PokeUrl.ApiUrl + 'pokemon' );
@@ -31,7 +31,7 @@ export class PokeService {
     return this.http.get(url);
   }
 
-  // Api Fav
+  // Servidor Producción Pokemon Favorito
 
   InsertarFav( pokeFav: any ) {
     return this.http.post( PokeUrl.NetApi + 'Pokemon', pokeFav);

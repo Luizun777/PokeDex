@@ -34,22 +34,15 @@ export class PokeFavComponent implements OnInit {
     let Llength: number = 0
     this.List = [];
     this.api.PokemonListFav().subscribe( (z: any) => {
-      console.log(z);
       if( z.length !== 0 ) {
         for (const p of z) {
           let imagPok = p.img;
-          // console.log(p)
           if ( imagPok === null ) {
             imagPok = 'assets/IMG/pokeball.png';
           }
-          // console.log(p.name.toLowerCase().trim());
           this.api.PokeId( p.id_Pokemon ).subscribe( (x: any) => {
             let filtIdioma = x.flavor_text_entries.filter( f => f.language.name === 'es' );
             this.api.PokemonId( p.name.toLowerCase().trim() ).subscribe( (y: any) => {
-              // console.log(y)
-              // console.log(x);
-              // Filatr por idioma
-              // console.log(filtIdioma);
               list = {
                 id: p.id,
                 id_Pokemon: p.id_Pokemon,
@@ -60,7 +53,6 @@ export class PokeFavComponent implements OnInit {
                 stats: y.stats
               }
               this.List.push(list)
-              // console.log(this.List)
               Llength = this.List.length
               if ( z.length === Llength ) {
                 this.spin = false;
@@ -68,7 +60,6 @@ export class PokeFavComponent implements OnInit {
             });
           },( error: any ) => {
             this.api.PokemonId( p.name.toLowerCase().trim() ).subscribe( (y: any) => {
-              // console.log(error)
               list = {
                 id: p.id,
                 id_Pokemon: p.id_Pokemon,
@@ -79,7 +70,6 @@ export class PokeFavComponent implements OnInit {
                 stats: y.stats
               }
               this.List.push(list)
-              // console.log(this.List.length)
               Llength = this.List.length
               if ( z.length === Llength ) {
                 this.spin = false;
@@ -91,9 +81,7 @@ export class PokeFavComponent implements OnInit {
         this.spin = false;
         this.sinPokemon = true;
       }
-      // this.List = z;
     },( error: any ) => {
-      console.log(error)
       this.sinPokemon = false;
       this.spin = false;
       this.error = true;
@@ -104,14 +92,11 @@ export class PokeFavComponent implements OnInit {
   ElimFav( id_pokemon: number, name: string ) {
     this.spin = true;
     this.api.PokemonElimFav(id_pokemon).subscribe( (z) => {
-      // console.log(z);
       this.ListFav();
       this.messageService.add({severity:'success', summary: 'Liberaste a '+name, detail:'Ya no podrás ver a '+name+' en la pestaña de favoritos'});
     },( error: any ) => {
-      console.log(error)
       this.List = [];
       this.ListFav();
-      // this.messageService.add({severity:'error', summary: 'No puedes capturar a '+name, detail:'Error de conexión "'+error.name+'". Inténtelo más tarde'});
     });
   }
 

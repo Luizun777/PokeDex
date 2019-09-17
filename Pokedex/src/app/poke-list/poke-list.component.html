@@ -1,9 +1,4 @@
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
-<!-- <div class="d-flex justify-content-center" *ngIf="spin">
-  <div class="spinner-grow text-primary m-5 spin-width" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-</div> -->
 <div class="text-center mb-4" [hidden]="!spin">
   <img class="animated rubberBand infinite loade" src="assets/IMG/pokeball.png">
 </div>
@@ -55,7 +50,6 @@
                 [class.badge-danger]="t.type.name === 'fire' || t.type.name === 'dragon'"
                 [class.badge-light]="t.type.name === 'ice'"
                 [class.badge-dark]="t.type.name === 'rock' || t.type.name === 'dark'"
-                
                 class="badge badge-pill text-capitalize">
                 <span *ngIf="t.type.name === 'grass'"><i class="fas fa-seedling"></i></span>
                 <span *ngIf="t.type.name === 'poison'"><i class="fas fa-skull-crossbones"></i></span>
@@ -109,39 +103,6 @@
       </td>
     </tr>
     <tr>
-
-      <!-- <th colspan="4" class="text-left">
-        <div class="row">
-          <div class="col-sm-1">
-            <h4>
-              <button class="btn btn-link text-white" (click)="Paginador('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20')" [disabled]="btn_prev">
-                <i class="fas fa-angle-double-left"></i>
-              </button>
-            </h4>
-          </div>
-          <div class="col">
-            <h4>
-              <button class="btn btn-link text-white" (click)="Paginador(x.previous)" [disabled]="btn_prev">
-                <i class="fas fa-chevron-left"></i>
-              </button>
-            </h4>
-          </div>
-          <div class="col-sm-1">
-            <h4 class="text-right">
-              <button class="btn btn-link text-white" (click)="Paginador(x.next)" [disabled]="btn_next">
-                <i class="fas fa-chevron-right"></i>
-              </button>
-            </h4>
-          </div>
-          <div class="col-sm-1">
-            <h4 class="text-right">
-              <button class="btn btn-link text-white" (click)="Paginador('https://pokeapi.co/api/v2/pokemon?offset=960&limit=4')" [disabled]="btn_next">
-                <i class="fas fa-angle-double-right"></i>
-              </button>
-            </h4>
-          </div>
-        </div>
-      </th> -->
       <th>
         <nav aria-label="Page navigation example">
           <ul class="pagination">
@@ -157,22 +118,7 @@
             </li>
           </ul>
         </nav>
-        <!-- <h4>
-          <button class="btn btn-link text-white" (click)="Paginador('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20', 'inicio', 0)" [disabled]="btn_prev">
-            <i class="fas fa-angle-double-left"></i>
-          </button>
-          <button class="btn btn-link text-white" (click)="Paginador(x.previous, 'prev', 0)" [disabled]="btn_prev">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-        </h4> -->
       </th>
-      <!-- <th>
-        <h4>
-          <button class="btn btn-link text-white" (click)="Paginador(x.previous, 'prev', 0)" [disabled]="btn_prev">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-        </h4>
-      </th> -->
       <th colspan="3">
         <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center mt-2">
@@ -186,28 +132,7 @@
             </li>
           </ul>
         </nav>
-
-        <!-- <div class="form-group row justify-content-md-center mt-2">
-          <label class="col col-lg-4 text-right">
-            {{PagActual}} / {{PagTotal}} 
-          </label>
-          <div class="col-sm-8">
-            <select class="form-control form-control-sm bg-dark text-center text-white">
-              <option> - Selecciona - </option>
-              <option *ngFor="let p of PaginasPokemon" (click)="Paginador(p.url, 'select', p.index)">
-                {{ p.index }}
-              </option>
-            </select>
-          </div>
-        </div> -->
       </th>
-      <!-- <th>
-        <h4 class="text-right">
-          <button class="btn btn-link text-white" (click)="Paginador(x.next, 'nex', 0)" [disabled]="btn_next">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </h4>
-      </th> -->
       <th>
         <nav aria-label="Page navigation example">
           <ul class="pagination">
@@ -223,36 +148,7 @@
             </li>
           </ul>
         </nav>
-        <!-- <h4 class="text-right">
-          <button class="btn btn-link text-white" (click)="Paginador('https://pokeapi.co/api/v2/pokemon?offset=960&limit=4', 'fin', 0)" [disabled]="btn_next">
-            <i class="fas fa-angle-double-right"></i>
-          </button>
-        </h4> -->
       </th>
-
     </tr>
-    <!-- <tr>
-      <th colspan="4">
-        <select class="form-control form-control-sm bg-dark text-center text-white">
-          <option>
-            - Selecciona -
-          </option>
-          <option *ngFor="let p of PaginasPokemon" (click)="Paginador(p.url)">
-            {{ p.index }}
-          </option>
-        </select>
-        <div class="row">
-          <div class="col mt-2 navigation">
-            <nav aria-label="Page bg-dark">
-              <ul class="pagination justify-content-center bg-dark row" >
-                <li class="page-item bg-dark col-auto" *ngFor="let p of PaginasPokemon">
-                  <a class="page-link bg-dark" (click)="Paginador(p.url)">{{ p.index }}</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </th>
-    </tr> -->
   </tbody>
 </table>
